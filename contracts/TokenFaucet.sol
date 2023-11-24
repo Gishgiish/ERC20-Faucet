@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity ^0.8.19;
+
+import "hardhat/console.sol";
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/utils/math/Math.sol";
@@ -57,6 +59,7 @@ contract TokenFaucet is ERC20, ReentrancyGuard {
         owner = msg.sender;
         // Set the request limit
         requestLimit = _requestLimit;
+        _requestLimit < _initialSupply;
         // Set the request cooldown period
         requestCooldown = _requestCooldown;
     }
